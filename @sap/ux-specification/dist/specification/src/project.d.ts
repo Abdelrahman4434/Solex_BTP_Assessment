@@ -1,0 +1,21 @@
+import type { Manifest, FileData } from '@sap/ux-specification-types';
+export interface Project {
+    root: string;
+    name: string;
+    manifest: Manifest;
+    annotations: FileData[];
+    changes: string[];
+    fragments: FileData[];
+    views: FileData[];
+}
+export declare const readDirectory: (path: string) => Promise<string[]>;
+export declare const isDirectory: (path: string) => Promise<boolean>;
+export declare const getChanges: (webapp: string) => Promise<string[]>;
+/**
+ * Get the project artifacts, like manifest, service metadata, annotations.
+ *
+ * @param root - project root where package.json is
+ * @returns A promise that resolves to the project artifacts.
+ */
+export declare const getProject: (root: string) => Promise<Project>;
+//# sourceMappingURL=project.d.ts.map

@@ -1,0 +1,634 @@
+{
+  "type": "object",
+  "properties": {
+    "fitContent": {
+      "description": "Set fitContent to true to optimize the dynamic page responsiveness on small screens and behavior when the DynamicPageHeader is expanded or collapsed.",
+      "type": "boolean",
+      "artifactType": "FlexChange",
+      "controlType": "sap.f.DynamicPage"
+    },
+    "header": {
+      "$ref": "#/definitions/ListHeader",
+      "description": "Header"
+    },
+    "filterBar": {
+      "$ref": "#/definitions/ListReportFilterBar",
+      "description": "Filter Bar"
+    },
+    "table": {
+      "$ref": "#/definitions/Table",
+      "description": "Table"
+    },
+    "footer": {
+      "$ref": "#/definitions/Toolbar",
+      "description": "Footer"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "ListHeader": {
+      "description": "Header",
+      "isViewNode": true,
+      "type": "object",
+      "properties": {
+        "actions": {
+          "$ref": "#/definitions/ListHeaderActions"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ListHeaderActions": {
+      "description": "Actions",
+      "isViewNode": true,
+      "type": "object",
+      "properties": {
+        "Share": {
+          "$ref": "#/definitions/Share"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Share": {
+      "description": "Share",
+      "isViewNode": true,
+      "type": "object",
+      "properties": {
+        "visible": {
+          "description": "Allows you to define if the button is visible on the screen.",
+          "type": "boolean",
+          "artifactType": "FlexChange",
+          "controlType": "sap.m.Button"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ListReportFilterBar": {
+      "description": "Filter Bar",
+      "isViewNode": true,
+      "type": "object",
+      "properties": {
+        "annotationPath": {
+          "description": "Specify a SelectionVariant (in order to set default values for the filter bar), a PresentationVariant (in order to define the layout of the table), or a SelectionPresentationVariant (combining both)",
+          "type": "string",
+          "artifactType": "Manifest",
+          "descriptionSrcURL": "https://ui5.sap.com/sdk/#/topic/49a6ba5b8d6946208322a9f7e16837c2"
+        },
+        "liveMode": {
+          "description": "If liveMode is set, the search will be automatically triggered when a filter value is set.",
+          "type": "boolean",
+          "artifactType": "FlexChange",
+          "controlType": "sap.ui.comp.smartfilterbar.SmartFilterBar"
+        },
+        "smartVariantManagement": {
+          "description": "Controls whether smart variant management is active. Default is true.",
+          "type": "boolean",
+          "artifactType": "Manifest",
+          "descriptionSrcURL": "https://ui5.sap.com/sdk/#/topic/094fe8c8d8ac4f0eb4724b1a52d2ad61"
+        },
+        "variantManagementHidden": {
+          "description": "If you set the flag to true, then standard variant management is not available in the app. The app name is displayed instead.\nIf the flag is false or undefined, the standard variant management is available and can be enabled or disabled.",
+          "type": "boolean",
+          "artifactType": "Manifest",
+          "descriptionSrcURL": "https://ui5.sap.com/sdk/#/topic/094fe8c8d8ac4f0eb4724b1a52d2ad61"
+        },
+        "subTitleIfVariantMgmtHidden": {
+          "description": "You can choose an app-specific title by setting the corresponding value for the subTitleIfVariantMgmtHidden property.",
+          "i18nClassification": "TIT: Subtitle if variant management is hidden",
+          "type": "string",
+          "artifactType": "Manifest",
+          "descriptionSrcURL": "https://ui5.sap.com/sdk/#/topic/094fe8c8d8ac4f0eb4724b1a52d2ad61"
+        },
+        "showClearOnFB": {
+          "description": "Handles the visibility of the Clear button on the filter bar.",
+          "type": "boolean",
+          "artifactType": "FlexChange",
+          "controlType": "sap.ui.comp.smartfilterbar.SmartFilterBar"
+        },
+        "showFilterConfiguration": {
+          "description": "Handles the visibility of the Filter button on the filter bar.",
+          "type": "boolean",
+          "artifactType": "FlexChange",
+          "controlType": "sap.ui.comp.smartfilterbar.SmartFilterBar"
+        },
+        "showRestoreOnFB": {
+          "description": "Handles the visibility of the Restore button on the filter bar.",
+          "type": "boolean",
+          "artifactType": "FlexChange",
+          "controlType": "sap.ui.comp.smartfilterbar.SmartFilterBar"
+        },
+        "dateSettings": {
+          "$ref": "#/definitions/DateRange",
+          "description": "Defines the date settings for fields in the smart filter bar."
+        },
+        "selectionFields": {
+          "$ref": "#/definitions/FilterFields",
+          "description": "Filter Fields"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DateRange": {
+      "type": "object",
+      "properties": {
+        "useDateRange": {
+          "description": "If set to true all date fields with filter restriction interval will be treated as DateTimeRange filters.",
+          "type": "boolean",
+          "artifactType": "Manifest"
+        },
+        "selectedValues": {
+          "description": "Defines a set of standard date range values that you want to include or exclude.",
+          "type": "array",
+          "items": {
+            "enum": [
+              "DATE",
+              "DATERANGE",
+              "DAYS",
+              "FROM",
+              "LAST2WEEKS",
+              "LAST3WEEKS",
+              "LAST4WEEKS",
+              "LAST5WEEKS",
+              "LASTDAYS",
+              "LASTMONTH",
+              "LASTMONTHS",
+              "LASTQUARTER",
+              "LASTQUARTERS",
+              "LASTWEEK",
+              "LASTWEEKS",
+              "LASTYEAR",
+              "LASTYEARS",
+              "MONTH",
+              "NEXT",
+              "NEXT2WEEKS",
+              "NEXT3WEEKS",
+              "NEXT4WEEKS",
+              "NEXT5WEEKS",
+              "NEXTDAYS",
+              "NEXTMONTH",
+              "NEXTMONTHS",
+              "NEXTQUARTER",
+              "NEXTQUARTERS",
+              "NEXTWEEK",
+              "NEXTWEEKS",
+              "NEXTYEARS",
+              "QUARTER",
+              "QUARTER1",
+              "QUARTER2",
+              "QUARTER3",
+              "QUARTER4",
+              "SPECIFICMONTH",
+              "THISMONTH",
+              "THISQUARTER",
+              "THISWEEK",
+              "TO",
+              "TODAY",
+              "TODAYFROMTO",
+              "TOMORROW",
+              "WEEK",
+              "YEAR",
+              "YEARTODATE",
+              "YESTERDAY"
+            ],
+            "type": "string"
+          },
+          "artifactType": "Manifest"
+        },
+        "exclude": {
+          "description": "This property is set to True by default. This excludes all values given as selectedValues from the list of date range filters.\nIf the exclude property is set to False, the application shows only selected values in the list of date range filters.",
+          "type": "boolean",
+          "artifactType": "Manifest"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FilterFields": {
+      "description": "Filter Fields",
+      "isViewNode": true,
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/FilterField"
+      }
+    },
+    "FilterField": {
+      "description": "Filter Field",
+      "isViewNode": true,
+      "type": "object",
+      "properties": {
+        "selectedValues": {
+          "description": "Defines a set of standard date range values that you want to include or exclude.",
+          "type": "array",
+          "items": {
+            "enum": [
+              "DATE",
+              "DATERANGE",
+              "DAYS",
+              "FROM",
+              "LAST2WEEKS",
+              "LAST3WEEKS",
+              "LAST4WEEKS",
+              "LAST5WEEKS",
+              "LASTDAYS",
+              "LASTMONTH",
+              "LASTMONTHS",
+              "LASTQUARTER",
+              "LASTQUARTERS",
+              "LASTWEEK",
+              "LASTWEEKS",
+              "LASTYEAR",
+              "LASTYEARS",
+              "MONTH",
+              "NEXT",
+              "NEXT2WEEKS",
+              "NEXT3WEEKS",
+              "NEXT4WEEKS",
+              "NEXT5WEEKS",
+              "NEXTDAYS",
+              "NEXTMONTH",
+              "NEXTMONTHS",
+              "NEXTQUARTER",
+              "NEXTQUARTERS",
+              "NEXTWEEK",
+              "NEXTWEEKS",
+              "NEXTYEARS",
+              "QUARTER",
+              "QUARTER1",
+              "QUARTER2",
+              "QUARTER3",
+              "QUARTER4",
+              "SPECIFICMONTH",
+              "THISMONTH",
+              "THISQUARTER",
+              "THISWEEK",
+              "TO",
+              "TODAY",
+              "TODAYFROMTO",
+              "TOMORROW",
+              "WEEK",
+              "YEAR",
+              "YEARTODATE",
+              "YESTERDAY"
+            ],
+            "type": "string"
+          },
+          "artifactType": "Manifest"
+        },
+        "exclude": {
+          "description": "This property is set to True by default which excludes all values given as selectedValues from the list of date range filters.\nIf this property is set to False, the application shows only selected values in the list of date range filters.",
+          "type": "boolean",
+          "artifactType": "Manifest"
+        },
+        "customDateRangeImplementation": {
+          "description": "This property references a JS class, which can be used to modify the date range value list.\nYou can either remove the standard data range values or add custom values.\nThe customDateRangeImplementation setting takes priority followed by filter and selectedValues when excluding date range types.",
+          "type": "string",
+          "artifactType": "Manifest"
+        },
+        "filter": {
+          "description": "You can use the filter settings to include and exclude specific date range values.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "$ref": "#/definitions/FilterPathType",
+                "description": "Choose 'key' to define filter values for single values of the date range, or 'category' to filter by a whole subset."
+              },
+              "contains": {
+                "description": "Specifies a filter describing a set of values of the date range type.",
+                "type": "string"
+              },
+              "equals": {
+                "description": "Defines a single value of the standard date range type.",
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "DATE",
+                    "DATERANGE",
+                    "DAYS",
+                    "FROM",
+                    "LAST2WEEKS",
+                    "LAST3WEEKS",
+                    "LAST4WEEKS",
+                    "LAST5WEEKS",
+                    "LASTDAYS",
+                    "LASTMONTH",
+                    "LASTMONTHS",
+                    "LASTQUARTER",
+                    "LASTQUARTERS",
+                    "LASTWEEK",
+                    "LASTWEEKS",
+                    "LASTYEAR",
+                    "LASTYEARS",
+                    "MONTH",
+                    "NEXT",
+                    "NEXT2WEEKS",
+                    "NEXT3WEEKS",
+                    "NEXT4WEEKS",
+                    "NEXT5WEEKS",
+                    "NEXTDAYS",
+                    "NEXTMONTH",
+                    "NEXTMONTHS",
+                    "NEXTQUARTER",
+                    "NEXTQUARTERS",
+                    "NEXTWEEK",
+                    "NEXTWEEKS",
+                    "NEXTYEARS",
+                    "QUARTER",
+                    "QUARTER1",
+                    "QUARTER2",
+                    "QUARTER3",
+                    "QUARTER4",
+                    "SPECIFICMONTH",
+                    "THISMONTH",
+                    "THISQUARTER",
+                    "THISWEEK",
+                    "TO",
+                    "TODAY",
+                    "TODAYFROMTO",
+                    "TOMORROW",
+                    "WEEK",
+                    "YEAR",
+                    "YEARTODATE",
+                    "YESTERDAY"
+                  ],
+                  "type": "string"
+                }
+              },
+              "exclude": {
+                "description": "This property is set to True by default which excludes all values given as selectedValues from the list of date range filters.\nIf this property is set to False, the application shows only selected values in the list of date range filters.",
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "path"
+            ]
+          },
+          "artifactType": "Manifest"
+        },
+        "defaultValue": {
+          "$ref": "#/definitions/DefaultDateRange",
+          "description": "You can set a default value for semantic date range.",
+          "artifactType": "Manifest"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FilterPathType": {
+      "enum": [
+        "category",
+        "key"
+      ],
+      "type": "string"
+    },
+    "DefaultDateRange": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/DefaultDateRangeValueEnum",
+          "description": "The operation property is the value that will be set for semantic date range."
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "operation"
+      ]
+    },
+    "DefaultDateRangeValueEnum": {
+      "enum": [
+        "DATETOYEAR",
+        "LAST2WEEKS",
+        "LAST3WEEKS",
+        "LAST4WEEKS",
+        "LAST5WEEKS",
+        "LASTMONTH",
+        "LASTQUARTER",
+        "LASTWEEK",
+        "LASTYEAR",
+        "QUARTER1",
+        "QUARTER2",
+        "QUARTER3",
+        "QUARTER4",
+        "THISMONTH",
+        "THISQUARTER",
+        "THISWEEK",
+        "THISYEAR",
+        "TODAY",
+        "TOMORROW",
+        "YEARTODATE",
+        "YESTERDAY"
+      ],
+      "type": "string"
+    },
+    "Table": {
+      "description": "Table",
+      "isViewNode": true,
+      "type": "object",
+      "properties": {
+        "entitySet": {
+          "description": "This property can be used to indicate that a table or chart should be based on a different entity set than the main entity set",
+          "type": "string",
+          "artifactType": "Manifest",
+          "descriptionSrcURL": "https://ui5.sap.com/sdk/#/topic/b6b59e4a4c3548cf83ff9c3b955d3ba3"
+        },
+        "annotationPath": {
+          "description": "Specify a SelectionVariant or SelectionPresentationVariant annotation for the entity set to configure the table or chart",
+          "type": "string",
+          "artifactType": "Manifest",
+          "descriptionSrcURL": "https://ui5.sap.com/sdk/#/topic/37aeed74e17a42caa2cba3123f0c15fc"
+        },
+        "showItemNavigationOnChart": {
+          "description": "To enable navigation for charts, you have to set the property to \"true\" and maintain an internal navigation target in the manifest.",
+          "type": "boolean",
+          "artifactType": "Manifest"
+        },
+        "views": {
+          "$ref": "#/definitions/MultiViewsDefinition"
+        },
+        "quickVariantSelection": {
+          "$ref": "#/definitions/MultiViewsOnTable",
+          "description": "With quickVariantSelection, you can switch to multiple views (single table mode).\nEach view links to a variant you have added to your annotations."
+        },
+        "showTablePersonalisation": {
+          "description": "The showTablePersonalisation attribute can be set to false to hide the table personalization button.",
+          "type": "boolean",
+          "artifactType": "FlexChange",
+          "controlType": "sap.ui.comp.smarttable.SmartTable"
+        },
+        "exportType": {
+          "$ref": "#/definitions/smarttable.ExportType",
+          "description": "Specifies the type of export to be used in the SmartTable control.",
+          "artifactType": "FlexChange",
+          "controlType": "sap.ui.comp.smarttable.SmartTable"
+        },
+        "useExportToExcel": {
+          "description": "useExportToExcel must be set to true if you want to export data to a spreadsheet application, for example Microsoft Excel.",
+          "type": "boolean",
+          "artifactType": "FlexChange",
+          "controlType": "sap.ui.comp.smarttable.SmartTable"
+        }
+      },
+      "additionalProperties": false
+    },
+    "MultiViewsDefinition": {
+      "description": "Views",
+      "isViewNode": true,
+      "type": "object",
+      "properties": {
+        "enableAutoBinding": {
+          "description": "Use this property to ensure that data are automatically loaded when the page is opened.",
+          "type": "boolean",
+          "artifactType": "Manifest"
+        },
+        "showCounts": {
+          "description": "You can show the counts of entries of each view. To do so, add the showCounts option and set it to true.",
+          "type": "boolean",
+          "artifactType": "Manifest"
+        },
+        "variants": {
+          "$ref": "#/definitions/MultiViewsVariants",
+          "description": "List of views"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "variants"
+      ]
+    },
+    "MultiViewsVariants": {
+      "isViewNode": false,
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/Table"
+      }
+    },
+    "MultiViewsOnTable": {
+      "type": "object",
+      "properties": {
+        "showCounts": {
+          "description": "To show the number of available records, set showCounts to true.",
+          "type": "boolean",
+          "artifactType": "Manifest"
+        },
+        "variants": {
+          "description": "The variants section contains a set of entries that point to a SelectionVariant or SelectionPresentationVariant annotation.",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ViewOnTable"
+          },
+          "artifactType": "Manifest"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "variants"
+      ]
+    },
+    "ViewOnTable": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "description": "The key property is mandatory. It is used for initializing the corresponding SegmentedButton item.",
+          "type": "string"
+        },
+        "annotationPath": {
+          "description": "Use annotationPath to define a specific variant that points to a SelectionVariant or SelectionPresentationVariant annotation.",
+          "type": "string",
+          "artifactType": "Manifest"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "annotationPath",
+        "key"
+      ]
+    },
+    "smarttable.ExportType": {
+      "description": "Provides the type of services available for export in the `SmartTable` control.\n\nThis enum is part of the 'sap/ui/comp/library' module export and must be accessed by the property 'smarttable.ExportType'.",
+      "enum": [
+        "GW",
+        "UI5Client",
+        "UI5ClientPDF"
+      ],
+      "type": "string"
+    },
+    "Toolbar": {
+      "description": "Toolbar",
+      "isViewNode": true,
+      "type": "object",
+      "properties": {
+        "actions": {
+          "$ref": "#/definitions/Actions"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "actions"
+      ]
+    },
+    "Actions": {
+      "description": "Actions",
+      "isViewNode": true,
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/Action"
+      }
+    },
+    "Action": {
+      "description": "Action",
+      "isViewNode": true,
+      "type": "object",
+      "properties": {
+        "tooltip": {
+          "description": "The text of the button tooltip, preferably as an i18n key.",
+          "i18nClassification": "ACT: Text for tooltip of button.",
+          "type": "string",
+          "artifactType": "FlexChange",
+          "controlType": "sap.m.Button"
+        },
+        "icon": {
+          "description": "An icon to be displayed as a graphical element within the button.\nThis can be an image or an icon from the Icon Explorer (https://ui5.sap.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html#/overview/SAP-icons), represented as RFC 3986 conformant URI.",
+          "type": "string",
+          "artifactType": "FlexChange",
+          "controlType": "sap.m.Button"
+        },
+        "activeIcon": {
+          "description": "An alternative icon for the active (depressed) state of the button.\nThis can be an image or an icon from the Icon Explorer (https://ui5.sap.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html#/overview/SAP-icons), represented as RFC 3986 conformant URI.",
+          "type": "string",
+          "artifactType": "FlexChange",
+          "controlType": "sap.m.Button"
+        },
+        "type": {
+          "$ref": "#/definitions/ButtonType",
+          "description": "Defines the Button type.",
+          "artifactType": "FlexChange",
+          "controlType": "sap.m.Button"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ButtonType": {
+      "description": "Different predefined button types for the {@link sap.m.Button sap.m.Button}.\n\nThis enum is part of the 'sap/m/library' module export and must be accessed by the property 'ButtonType'.",
+      "enum": [
+        "Accept",
+        "Attention",
+        "Back",
+        "Critical",
+        "Default",
+        "Emphasized",
+        "Ghost",
+        "Negative",
+        "Neutral",
+        "Reject",
+        "Success",
+        "Transparent",
+        "Unstyled",
+        "Up"
+      ],
+      "type": "string"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

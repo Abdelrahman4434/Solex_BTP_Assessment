@@ -1,0 +1,18 @@
+import type { MacrosAPI } from './types';
+/**
+ * Method to retrieve the latest version of a package on npmjs.
+ *
+ * @param packageName Name of the package on npmjs
+ * @returns Promise for latest version released to npmjs
+ */
+export declare const getLatestNpmVersion: (packageName: string) => Promise<string>;
+/**
+ * Method returns "sap.fe.macros" api for passed specification version.
+ *
+ * @param {string} specVersion Specification version.
+ * @param {boolean} [useNightlyBuild] If true, then dev/nightly build version will be retrieved.
+ * @param overwriteCache If true, the cached API file will be overwritten with a new version.
+ * @returns {Promise<MacrosAPI | undefined>} Promise to "sap.fe.macros" api.
+ */
+export declare function getMacrosAPI(specVersion: string, useNightlyBuild?: boolean, overwriteCache?: boolean): Promise<MacrosAPI | undefined>;
+//# sourceMappingURL=api.d.ts.map

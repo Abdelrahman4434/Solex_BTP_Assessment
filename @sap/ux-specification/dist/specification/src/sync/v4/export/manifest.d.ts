@@ -1,0 +1,16 @@
+import { v4 } from '@sap/ux-specification-types';
+export declare enum Constants {
+    OptionalQuery = ":?query:",
+    Component = "sap/fe/AppComponent",
+    Namespace = "sap.fe.templates"
+}
+/**
+ * Transform Pages(from app.json) to UI5 routing configuration (manifest.json).
+ *
+ * @param homePage - The ID of the home page
+ * @param pages - The pages configuration from app.json
+ * @param manifest - The manifest.json object
+ * @returns UI5 routing configuration
+ */
+export declare function transformRoutingV4(homePage: string, pages: v4.PagesV4, manifest: object): v4.SapUi5RoutingV4;
+//# sourceMappingURL=manifest.d.ts.map

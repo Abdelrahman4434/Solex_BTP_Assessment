@@ -1,0 +1,12 @@
+/**
+ * Field
+ *
+ * @isViewNode true
+ */
+export interface Field {
+    /**
+     * Defines if the field is visible on the screen.
+     */
+    visible?: boolean;
+}
+//# sourceMappingURL=Field.d.ts.map

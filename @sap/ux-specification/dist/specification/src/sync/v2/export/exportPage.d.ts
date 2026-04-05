@@ -1,0 +1,64 @@
+import type { UI5Version, ExportParametersV2, ExportListReportV2Parameters, ExportListReportWithPathV2Parameters, ExportV2WithPath } from '../../..';
+import type { ExportResults, FioriElementsVersion, v2, ExportPageUnitionType } from '@sap/ux-specification-types';
+import type { ObjectPage } from './pages';
+import type { MetadataInstanceInterface } from '../../common/decoration/factory';
+/**
+ * Instantiates the export classes for a single object page section.
+ *
+ * @param currentSection - Export class as an object, to be updated
+ * @param sectionId - Current section ID
+ * @param {MetadataInstanceInterface} factory - factory for creating metadata instances
+ */
+export declare function getClassesForSingleSection(currentSection: object, sectionId: string, factory: MetadataInstanceInterface): void;
+/**
+ * Recursive sub-function for handling subsections.
+ *
+ * @param currentSection - Object page section in config
+ * @param factory - A factory instance for creating metadata instances
+ */
+export declare function getSubsectionClasses(currentSection: object, factory: MetadataInstanceInterface): void;
+/**
+ * Instantiates the export classes for the sections of an object page.
+ *
+ * @param objectPageConfig - The configuration object for the object page.
+ * @param objectPage - The export class instance for the object page where sections will be included.
+ * @param factory - A factory instance for creating metadata instances.
+ */
+export declare function getExportClassesForSections(objectPageConfig: v2.ObjectPageConfigV2, objectPage: ObjectPage, factory: MetadataInstanceInterface): void;
+/**
+ * Calculates the baseId of the app for flex changes.
+ *
+ * @param {object} config - content of the config file
+ * @param {ExportPageUnitionType} exportParameters - all API parameters needed for the export
+ * @returns the baseId for changes
+ */
+export declare function calculateBaseId(config: object, exportParameters: ExportPageUnitionType): string;
+/**
+ * Run through the given ListReport config and return respective manifest entry and flex changes.
+ *
+ * @param {ExportListReportV2Parameters} exportParameters - all API parameters needed for the export
+ * @param ui5Version - SAP UI5 version
+ * @param deletionRequest - if set to true, any manifest setting specified by entityPath gets deleted even if it comprises any unknown property
+ * @returns ExportResults - The export result comprises the enhanced manifest as well as a list of flex changes.
+ */
+export declare function exportListReportPage(exportParameters: ExportListReportV2Parameters | ExportListReportWithPathV2Parameters, ui5Version: UI5Version, deletionRequest?: boolean): ExportResults;
+/**
+ * Exports a Fiori Element V2 page.
+ * It converts the entries of the input page (config file) to corresponding manifest settings and flex changes.
+ *
+ * @param exportParametersV2 - list of parameters for the export; the list varies for the different schema types
+ * @param ui5Version - The version of SAP UI5 required for the export
+ * @returns ExportResults - The export result comprises the enhanced manifest as well as a list of flex changes.
+ */
+export declare function exportPageV2(exportParametersV2: ExportParametersV2[FioriElementsVersion.v2], ui5Version: UI5Version): ExportResults | undefined;
+/**
+ * Exports the config change of a single entity of the config, as indicated by an entityPath.
+ * It converts the entries of the input page (config file) to corresponding manifest settings and flex changes.
+ *
+ * @param exportParametersV2 - list of parameters for the export; the list varies for the different schema types
+ * @param ui5Version - the minUi5Version of the app
+ * @param deletionRequest - if set to true, any manifest setting specified by entityPath gets deleted even if it comprises any unknown property
+ * @returns ExportResults - The export result comprises the enhanced manifest as well as a list of flex changes.
+ */
+export declare function exportConfigEntityByPathV2(exportParametersV2: ExportV2WithPath[FioriElementsVersion.v2], ui5Version: UI5Version, deletionRequest?: boolean): ExportResults | undefined;
+//# sourceMappingURL=exportPage.d.ts.map

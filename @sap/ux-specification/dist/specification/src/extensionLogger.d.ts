@@ -1,0 +1,20 @@
+import type { ExtensionLogger, LogSeverity, Location, LogMessage } from '@sap/ux-specification-types';
+/**
+ * Internal representation of one log entry
+ */
+interface LogEntry {
+    severity: LogSeverity;
+    message: string;
+    location?: Location;
+}
+/**
+ * Function to create a new log entry and add it to the logger.
+ * If no logger is passed, puts the message to the console.
+ *
+ * @param logger - the logger instance
+ * @param logEntry - The log entry containing severity, message, and optional location
+ * @param meta - option list of strings/objects
+ */
+export declare const log: (logger: ExtensionLogger, logEntry: LogEntry, ...meta: LogMessage[]) => void;
+export {};
+//# sourceMappingURL=extensionLogger.d.ts.map

@@ -1,0 +1,13 @@
+import { type SchemaDefinition } from '@sap/ux-specification-types';
+import type { XMLElement } from '@xml-tools/ast';
+/**
+ * Method handles custom extension - resolve positions and ordering.
+ * Currently it handles `sap.fe.macros.FilterField`, but code is generic and can handle also other extensions - method relies on 'anchor' and 'placement' properties.
+ *
+ * @param node Parsed XML element.
+ * @param schema Schema object which contains custom extensions and annotation elements.
+ * @param appSchema Full app schema.
+ * @param aggregationName Name of the aggregation container.
+ */
+export declare function handleExtensions(node: XMLElement, schema: SchemaDefinition, appSchema: SchemaDefinition, aggregationName?: string): void;
+//# sourceMappingURL=extensions.d.ts.map

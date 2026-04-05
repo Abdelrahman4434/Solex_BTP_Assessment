@@ -1,0 +1,267 @@
+{
+  "type": "object",
+  "properties": {
+    "settings": {
+      "$ref": "#/definitions/AppSettings"
+    },
+    "pages": {
+      "$ref": "#/definitions/Pages"
+    },
+    "$schema": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "home": {
+      "type": "string"
+    },
+    "target": {
+      "$ref": "#/definitions/Target"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "AppSettings": {
+      "type": "object",
+      "properties": {
+        "forceGlobalRefresh": {
+          "description": "If forceGlobalRefresh is not explicitly set to false, a global model refresh is triggered when the annotated side effects are executed.",
+          "type": "boolean",
+          "manifestPath": "$[\"sap.ui.generic.app\"].settings.forceGlobalRefresh"
+        },
+        "flexibleColumnLayout": {
+          "$ref": "#/definitions/FlexibleColumnLayout",
+          "description": "The flexible column layout allows users to see more details on the page, and to expand and collapse the screen areas.",
+          "manifestPath": "$[\"sap.ui.generic.app\"].settings.flexibleColumnLayout"
+        },
+        "tableColumnVerticalAlignment": {
+          "$ref": "#/definitions/TableColumnVerticalAlignment",
+          "description": "tableColumnVerticalAlignment provides an option for vertical alignment for the whole responsive table.",
+          "manifestPath": "$[\"sap.ui.generic.app\"].settings.tableColumnVerticalAlignment"
+        },
+        "draftDiscardConfirmationSettings": {
+          "$ref": "#/definitions/DraftDiscardConfirmationSettings",
+          "description": "Allows applications to configure confirmation popups in various scenarios.",
+          "manifestPath": "$[\"sap.ui.generic.app\"].settings.draftDiscardConfirmationSettings"
+        },
+        "statePreservationMode": {
+          "$ref": "#/definitions/StatePreservationMode",
+          "description": "Allows applications to configure persistence mode in an object page. Persistence mode retains the tab selection made on an object page in certain cases.",
+          "manifestPath": "$[\"sap.ui.generic.app\"].settings.statePreservationMode"
+        },
+        "globalTableSettings": {
+          "$ref": "#/definitions/GlobalApplicationTableSettings",
+          "description": "Settings for all tables.",
+          "manifestPath": "$[\"sap.ui.generic.app\"].settings.tableSettings"
+        },
+        "title": {
+          "description": "Defines the title for the application.",
+          "i18nClassification": "TIT: Title of the application",
+          "type": "string",
+          "manifestPath": "$[\"sap.app\"].title"
+        },
+        "description": {
+          "description": "Defines the description for the application.",
+          "i18nClassification": "TIT: Description of the application",
+          "type": "string",
+          "manifestPath": "$[\"sap.app\"].description"
+        },
+        "flexEnabled": {
+          "description": "Enables key user adaptation for an application.",
+          "descriptionSrcURL": "https://ui5.sap.com/sdk/#/topic/ccd45ba3f0b446a0901b2c9d42b8ad53",
+          "type": "boolean",
+          "manifestPath": "$[\"sap.ui5\"].flexEnabled"
+        },
+        "cloudDevAdaptationStatus": {
+          "$ref": "#/definitions/CloudDevAdaptationStatus",
+          "description": "Represents the release status for the developer adaptation in the cloud (relevant for SAP internal only). The supported types are released, deprecated, obsolete, no value means not released.",
+          "manifestPath": "$[\"sap.fiori\"].cloudDevAdaptationStatus"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FlexibleColumnLayout": {
+      "descriptionSrcURL": "https://ui5.sap.com/sdk/#/topic/e762257125b34513b0859faa1610b09e",
+      "type": "object",
+      "properties": {
+        "defaultTwoColumnLayoutType": {
+          "$ref": "#/definitions/FlexibleColumnLayoutType",
+          "manifestPath": "$[\"sap.ui.generic.app\"].settings.flexibleColumnLayout.defaultTwoColumnLayoutType"
+        },
+        "defaultThreeColumnLayoutType": {
+          "$ref": "#/definitions/FlexibleColumnLayoutType",
+          "manifestPath": "$[\"sap.ui.generic.app\"].settings.flexibleColumnLayout.defaultThreeColumnLayoutType"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FlexibleColumnLayoutType": {
+      "enum": [
+        "EndColumnFullScreen",
+        "MidColumnFullScreen",
+        "OneColumn",
+        "ThreeColumnsBeginExpandedEndHidden",
+        "ThreeColumnsEndExpanded",
+        "ThreeColumnsMidExpanded",
+        "ThreeColumnsMidExpandedEndHidden",
+        "TwoColumnsBeginExpanded",
+        "TwoColumnsMidExpanded"
+      ],
+      "type": "string"
+    },
+    "TableColumnVerticalAlignment": {
+      "enum": [
+        "Bottom",
+        "Middle",
+        "Top"
+      ],
+      "type": "string"
+    },
+    "DraftDiscardConfirmationSettings": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "description": "Allows applications to turn off the discard draft confirmation popup in various scenarios.",
+          "type": "string",
+          "const": "restricted",
+          "manifestPath": "$[\"sap.ui.generic.app\"].settings.draftDiscardConfirmationSettings.enabled"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "enabled"
+      ]
+    },
+    "StatePreservationMode": {
+      "enum": [
+        "discovery",
+        "persistence"
+      ],
+      "type": "string"
+    },
+    "GlobalApplicationTableSettings": {
+      "type": "object",
+      "properties": {
+        "createMode": {
+          "description": "This property acts as a global default for all pages and tables in the application. Page-level or table-level definitions override this setting.\nYou can set the following values for this property:\n- creationRows: Used to enable empty rows mode. In create and edit mode, an empty row is added to the table.\n- creationRowsHiddenInEditMode: Similar to \"creationRows\", but in edit mode, the empty row is only displayed when the user clicks the \"Create\" button. This option is available starting with SAPUI5 version 1.110.\n- inline: In create and edit mode, users can use the \"Create\" button to add new entries to the table. We recommend to use \"creationRows\" instead.\nBy default, an empty row is not provided and the \"Create\" button automatically navigates to the item's object page for the newly created entry.",
+          "descriptionSrcURL": "https://ui5.sap.com/sdk/#/topic/cfb04f0c58e7409992feb4c91aa9410b",
+          "enum": [
+            "creationRows",
+            "creationRowsHiddenInEditMode",
+            "inline"
+          ],
+          "type": "string",
+          "manifestPath": "$[\"sap.ui.generic.app\"].settings.tableSettings.createMode"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CloudDevAdaptationStatus": {
+      "internal": true,
+      "enum": [
+        "deprecated",
+        "obsolete",
+        "released"
+      ],
+      "type": "string"
+    },
+    "Pages": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/Page"
+      }
+    },
+    "Page": {
+      "type": "object",
+      "properties": {
+        "pageType": {
+          "$ref": "#/definitions/PageTypeV2"
+        },
+        "name": {
+          "type": "string"
+        },
+        "entitySet": {
+          "type": "string"
+        },
+        "contextPath": {
+          "type": "string"
+        },
+        "navigationProperty": {
+          "type": "string"
+        },
+        "config": {
+          "$ref": "#/definitions/PageConfig"
+        },
+        "navigation": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "variantManagement": {
+          "type": "string"
+        },
+        "defaultLayoutType": {
+          "$ref": "#/definitions/FlexibleColumnLayoutType"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PageTypeV2": {
+      "enum": [
+        "AnalyticalListPage",
+        "CustomPage",
+        "ListReport",
+        "ObjectPage",
+        "OverviewPage"
+      ],
+      "type": "string"
+    },
+    "PageConfig": {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Target": {
+      "type": "object",
+      "properties": {
+        "fioriElements": {
+          "$ref": "#/definitions/FioriElementsVersion"
+        },
+        "odata": {
+          "$ref": "#/definitions/OdataVersion"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FioriElementsVersion": {
+      "enum": [
+        "v2",
+        "v4"
+      ],
+      "type": "string"
+    },
+    "OdataVersion": {
+      "enum": [
+        "v2",
+        "v4"
+      ],
+      "type": "string"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

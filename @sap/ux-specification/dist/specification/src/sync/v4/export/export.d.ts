@@ -1,0 +1,28 @@
+import type { FioriElementsVersion, ExportParametersV4, ExportV4WithPath, ExportResults, UI5Version } from '@sap/ux-specification-types';
+export type ExportSessionState = {
+    /**
+     * Manifest JSON paths (sync-rule based) that were written/created during the current export run.
+     * Used to prevent later rules from deleting a property that was re-created earlier in the same session.
+     */
+    writtenManifestPaths: Set<string>;
+};
+/**
+ * General API for the export of a V4 config page.
+ * Export means the transfer of the properties and values of the given config to manifest entries or flex changes.
+ *
+ * @param exportParametersV4 - list of parameters for the export; the list varies for the different schema types
+ * @param ui5Version - the minUi5Version of the app
+ * @returns ExportResults = object comprising the updated manifest and a list of flex changes
+ */
+export declare const exportPageV4: (exportParametersV4: ExportParametersV4[FioriElementsVersion.v4], ui5Version: UI5Version) => ExportResults | undefined;
+/**
+ * Exports the config change of a single entity of the config, as indicated by an entityPath.
+ * Export means the transfer of the properties and values of the given config to manifest entries or flex changes.
+ *
+ * @param exportParametersV4 - list of parameters for the export; the list varies for the different schema types
+ * @param ui5Version - the minUi5Version of the app
+ * @param deletionRequest - if set to true, any manifest setting specified by entityPath gets deleted even if it comprises any unknown property
+ * @returns ExportResults = object comprising the updated manifest and a list of flex changes
+ */
+export declare const exportConfigEntityByPathV4: (exportParametersV4: ExportV4WithPath[FioriElementsVersion.v4], ui5Version?: UI5Version, deletionRequest?: boolean) => ExportResults | undefined;
+//# sourceMappingURL=export.d.ts.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"VisualFiltersAggregation.d.ts","sourceRoot":"","sources":["../../../../../../../src/ftfs/parser/model/visual-filters/VisualFiltersAggregation.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,MAAM,sBAAsB,CAAC;AACzD,OAAO,EAAE,uBAAuB,EAAE,MAAM,2BAA2B,CAAC;AAEpE;;GAEG;AACH,qBAAa,wBAAyB,SAAQ,iBAAiB;IAC3D,YAAY,UAAQ;IACpB,UAAU,iCAA2B;IACrC,OAAO,SAAoB;CAC9B"}
